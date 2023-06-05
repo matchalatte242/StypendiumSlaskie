@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikacja internetowa wyznaczająca właściwości podanej funkcji</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body onLoad="wybor()">
+    <header>
+        <h1>Aplikacja internetowa wyznaczająca właściwości podanej funkcji</h1>
+        <hr>
+    </header>
+    
+    <nav>
+        <form>
+            <label for="rodzaj">Wybierz rodzaj funkcji:</label>
+
+            <select name="rodzaj" id="rodzaj" onChange="wybor()">
+                <option value="1">Funkcja liniowa</option>
+                <option value="2">Funkcja kwadratowa</option>
+                <option value="3">Funkcja logarytmiczna</option>
+            </select>
+        </form>
+        <hr>
+    </nav>
+
+    <main>
+        <!-- Funkcja liniowa -->
+
+        <output id="dliniowa">
+            <h2>Funkcja liniowa</h2>
+
+            <h3>f(x) = ax + b</h3>
+
+            <form>
+                <label for="aliniowa">Podaj współczynnik kierunkowy a: </label>
+                <input type="number" name="aliniowa" id="aliniowa" value="1" onInput="fliniowa()"><br><br>
+                <label for="bliniowa">Podaj wyraz wolny b: </label>
+                <input type="number" name="bliniowa" id="bliniowa" value="1" onInput="fliniowa()"><br><br>
+                <label for="lliniowa">Podaj początek przedziału domkniętego: </label>
+                <input type="number" name="lliniowa" id="lliniowa" value="1" onInput="fliniowa()"><br><br>
+                <label for="pliniowa">Podaj koniec przedziału domkniętego: </label>
+                <input type="number" name="pliniowa" id="pliniowa" value="2" onInput="fliniowa()"><br><br>
+            </form><hr>
+        </output>
+
+        <output id="wliniowa">
+        </output>
+
+        <output id="fliniowa">
+        </output>
+
+        <!-- Funkcja kwadratowa -->
+
+        <output id="dkwadratowa">
+            <h2>Funkcja kwadratowa</h2>
+
+            <h3>f(x) = ax<sup>2</sup> + bx + c</h3>
+
+            <form>
+                <label for="akwadratowa">Podaj współczynnik kierunkowy a: </label>
+                <input type="number" name="akwadratowa" id="akwadratowa" value="1" onInput="fkwadratowa()"><br><br>
+                <label for="bkwadratowa">Podaj współczynnik b: </label>
+                <input type="number" name="bkwadratowa" id="bkwadratowa" value="1" onInput="fkwadratowa()"><br><br>
+                <label for="c">Podaj współczynnik c: </label>
+                <input type="number" name="c" id="c" value="1" onInput="fkwadratowa()"><br><br>
+                <label for="lkwadratowa">Podaj początek przedziału domkniętego: </label>
+                <input type="number" name="lkwadratowa" id="lkwadratowa" value="1" onInput="fkwadratowa()"><br><br>
+                <label for="pkwadratowa">Podaj koniec przedziału domkniętego: </label>
+                <input type="number" name="pkwadratowa" id="pkwadratowa" value="2" onInput="fkwadratowa()"><br><br>
+            </form><hr>
+
+            <output id="kkwadratowa"></output>
+        </output>
+
+        <output id="wkwadratowa">
+        </output>
+
+        <output id="fkwadratowa">
+        </output>
+
+        <!-- Funkcja logarytmiczna -->
+
+        <output id="dlogarytmiczna">
+            <h2>Funkcja logarytmiczna</h2>
+
+            <h3>f(x) = log<sub>a</sub>x</h3>
+
+            <form>
+                <label for="alogarytmiczna">Podaj a: </label>
+                <input type="number" name="alogarytmiczna" id="alogarytmiczna" value="2" min="0" onInput="flogarytmiczna()"><br><br>
+                <label for="llogarytmiczna">Podaj początek przedziału domkniętego: </label>
+                <input type="number" name="llogarytmiczna" id="llogarytmiczna" value="1" min="0" onInput="flogarytmiczna()"><br><br>
+                <label for="plogarytmiczna">Podaj koniec przedziału domkniętego: </label>
+                <input type="number" name="plogarytmiczna" id="plogarytmiczna" value="2" min="0" onInput="flogarytmiczna()"><br><br>
+            </form><hr>
+
+            <output id="klogarytmiczna"></output>
+        </output>
+
+        <output id="wlogarytmiczna">
+        </output>
+
+        <output id="flogarytmiczna">
+        </output>
+    </main>
+
+    <script src="script.js"></script>
+
+    <footer>
+        <span class="lewo">Autor: Piotr K.</span>
+        <a class="prawo" href="./Bibliografia.txt" target="_blank">Bibliografia</a><br><hr>
+    </footer>
+</body>
+</html>

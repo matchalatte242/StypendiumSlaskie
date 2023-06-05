@@ -1,0 +1,77 @@
+body {
+    background-image: url("image.jpg");
+    color: whitesmoke;
+    font-family: Calibri;
+    zoom: 150%;
+}
+
+h1 {
+    text-align: center;
+}
+
+legend {
+    font-weight: bold;
+    color: green;
+}
+
+span {
+    font-weight: bold;
+    color: blue;
+}
+
+p.nierownosc {
+    line-height: 0.7;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+    background-color: transparent;
+}
+
+[class^="Cb"] {
+    background-color: coral;
+}
+
+[class^="b"] {
+    background-color: mediumspringgreen;
+}
+
+[class^="a"] {
+    background-color: lightseagreen;
+}
+
+[class^="Cj"] {
+    background-color: burlywood;
+}
+
+tr:nth-child(2) td:nth-child(1) {
+    background-color: darkkhaki;
+}
+
+tr:nth-child(2) td:not(:nth-child(1)) {
+    background-color: lightskyblue;
+}
+
+tr:nth-child(1) td:nth-child(3) {
+    background-color: orange;
+}
+
+tr:nth-child(3) td:nth-child(2), 
+tr:nth-child(4) td:nth-child(2),
+tr:nth-child(5) td:nth-child(2) {
+    background-color: rgb(174, 174, 14);
+}
+
+tr:nth-of-type(3) td:nth-last-child(1),
+tr:nth-of-type(4) td:nth-last-child(1),
+tr:nth-of-type(5) td:nth-last-child(1) {
+    background-color: green;
+}
+
+input[type="button"]:hover {
+    color: green;
+}

@@ -1,0 +1,2 @@
+1.	https://www.chartjs.org/docs/latest/
+2.	http://www.taat.pl/typografia/ulamki.html

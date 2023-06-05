@@ -1,0 +1,19 @@
+body { font-family: Cambria; font-size: 1.5em; text-align: center; }
+canvas { width: 100% !important; max-width: 700px !important; margin: auto; }
+form label:hover {font-weight: bold; }
+footer { text-align: left; font-style: italic; }
+.fractdn { top: 0em; left: 0.1em; }
+.fractline, .fractup, .fractdn { font-family: arial, sans-serif; margin:0; padding:0; }
+.fractup { top: -0.6em; left: -0.1em; }
+.fractup, .fractdn { font-size: 0.55em; font-weight: 500; position: relative; }
+h2 { text-decoration: underline; }
+h1:hover { color: goldenrod; }
+h2:hover { color: navy; }
+h3:hover { color: crimson; }
+.lewo { float: left; }
+ol > li { list-style-position: inside; text-align: left; text-indent: 20%; }
+ol.kwadratowa li:hover { color: #3366CC; }
+ol.liniowa li:hover { color: #009900; }
+ol.logarytmiczna li:hover { color: mediumpurple; }
+.prawo { float: right; }
+#wliniowa, #fliniowa, #wkwadratowa, #fkwadratowa, #wlogarytmiczna, #flogarytmiczna { display: none; }

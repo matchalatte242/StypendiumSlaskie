@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikacja internetowa rozwiązująca jeden z problemów programowania liniowego</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body onLoad="dane()">
+    <header>
+        <hr>
+        <h1>Aplikacja internetowa rozwiązująca jeden z problemów programowania liniowego</h1>
+        <hr>
+    </header>
+
+    <main>
+        <section>
+            <hr>
+            <h2>Zadanie:</h2>
+            <p>Pewien zakład produkuje dwa typy płytek chodnikowych. Oba typy wymagają zużycia jednakowej ilości surowców (piasek, woda, żwir, cement).<br>Jeden typ jest barwny i do jego produkcji potrzebna jest farba. Wyprodukowanie jednej tony płytek barwnych wymaga <span id="sbwmaszyny">2</span>h pracy maszyn, <span id="sbwludzie">3</span>h pracy ludzkiej i <span id="sbwbarwnik">2</span>l barwnika.<br>Produkcja tony płyt bezbarwnych wymaga <span id="sbbmaszyny">1</span>h pracy maszyn, <span id="sbbludzie">3</span>h pracy ludzkiej.<br><br><b>Zysk:</b> płyty barwne <span id="sbwzysk">300</span> zł/t, płyty bezbarwne <span id="sbbzysk">200</span> zł/t.<br><br>Dysponujemy <span id="sdmaszyny">10</span>h pracy maszyn, <span id="sdludzie">2</span>h pracy ludzkiej i <span id="sdbarwnik">8</span>l barwnika.<br><br><b>Ile wyprodukować płyt i jakich, aby osiągnąć maksymalny zysk?</b></p>
+            <hr>
+        </section>
+
+        <section>
+            <form>
+                <hr>
+                <h2>Zmień dane wejściowe:</h2>
+                <fieldset>
+                    <legend>Płytki barwne</legend>
+                    <label for="bwmaszyny">Ilość godzin pracy maszyn potrzebnej do wyprodukowania 1 tony: </label>
+                    <input type="number" name="bwmaszyny" id="bwmaszyny" value="2" min="0" onInput="dane()"><br><br>
+                    <label for="bwludzie">Ilość godzin pracy ludzkiej potrzebnej do wyprodukowania 1 tony: </label>
+                    <input type="number" name="bwludzie" id="bwludzie" value="3" min="0" onInput="dane()"><br><br>
+                    <label for="bwbarwnik">Ilość litrów barwnika potrzebnych do wyprodukowania 1 tony: </label>
+                    <input type="number" name="bwbarwnik" id="bwbarwnik" value="2" min="0" onInput="dane()"><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Płytki bezbarwne</legend>
+                    <label for="bbmaszyny">Ilość godzin pracy maszyn potrzebnej do wyprodukowania 1 tony: </label>
+                    <input type="number" name="bbmaszyny" id="bbmaszyny" value="1" min="0" onInput="dane()"><br><br>
+                    <label for="bbludzie">Ilość godzin pracy ludzkiej potrzebnej do wyprodukowania 1 tony: </label>
+                    <input type="number" name="bbludzie" id="bbludzie" value="3" min="0" onInput="dane()"><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Zysk</legend>
+                    <label for="bwzysk">Zysk z produkcji płyt barwnych: </label>
+                    <input type="number" name="bwzysk" id="bwzysk" value="300" min="0" onInput="dane()">
+                    <label for="bwzysk">zł/t</label><br><br>
+                    <label for="bbzysk">Zysk z produkcji płyt bezbarwnych: </label>
+                    <input type="number" name="bbzysk" id="bbzysk" value="200" min="0" onInput="dane()">
+                    <label for="bbzysk">zł/t</label><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Dostępność</legend>
+                    <label for="dmaszyny">Dostępność pracy maszyn w godzinach: </label>
+                    <input type="number" name="dmaszyny" id="dmaszyny" value="10" min="0" onInput="dane()"><br><br>
+                    <label for="dludzie">Dostępność pracy ludzkiej w godzinach: </label>
+                    <input type="number" name="dludzie" id="dludzie" value="24" min="0" onInput="dane()"><br><br>
+                    <label for="dbarwnik">Dostępność barwnika w litrach: </label>
+                    <input type="number" name="dbarwnik" id="dbarwnik" value="8" min="0" onInput="dane()"><br>
+                </fieldset>
+            </form>
+            <hr>
+        </section>
+
+        <section>
+            <hr>
+
+            <h2>Rozwiązanie:</h2>
+
+            <h3>Zapis zadania w postaci standardowej:</h3>
+
+            <h4>Oznaczenia:</h4>
+
+            <p>x<sub>1</sub> - płytki barwne,</p>
+            <p>x<sub>2</sub> - płytki bezbarwne.</p>
+
+            <h4>Ograniczenia:</h4>
+
+            <p class="nierownosc">&#9484;<br>
+            &#9474;<span id="obwm">2</span>x<sub>1</sub> + <span id="obbm">1</span>x<sub>2</sub> &le; <span id="odm">10</span><br>
+            &#9474;<span id="obwl">3</span>x<sub>1</sub> + <span id="obbl">3</span>x<sub>2</sub> &le; <span id="odl">24</span><br>
+            &#9474;<span id="obwb">2</span>x<sub>1</sub> &le; <span id="odb">8</span><br>
+            &#9474;x<sub>1</sub> &ge; 0<br>
+            &#9474;x<sub>2</sub> &ge; 0<br>
+            &#9492;</p>
+
+            <p>Funkcja celu (zysk):</p>
+            <p>Z = <span id="obwz">300</span>x<sub>1</sub> + <span id="obbz">200</span>x<sub>2</sub> &#8594; <i>max</i></p>
+
+            <h3>Zapis zadania w postaci kanonicznej:</h3>
+
+            <p class="nierownosc">&#9484;<br>
+            &#9474;<span id="kbwm">2</span>x<sub>1</sub> + <span id="kbbm">1</span>x<sub>2</sub> + x<sub>3</sub> = <span id="kdm">10</span><br>
+            &#9474;<span id="kbwl">3</span>x<sub>1</sub> + <span id="kbbl">3</span>x<sub>2</sub> + x<sub>4</sub> = <span id="kdl">24</span><br>
+            &#9474;<span id="kbwb">2</span>x<sub>1</sub> + x<sub>5</sub> = <span id="kdb">8</span><br>
+            &#9474;x<sub>i</sub> &ge; 0<br>
+            &#9492;</p>
+
+            <p>Funkcja celu:</p>
+            <p>Z = <span id="kbwz">300</span>x<sub>1</sub> + <span id="kbbz">200</span>x<sub>2</sub> + 0x<sub>3</sub> + 0x<sub>4</sub> + 0x<sub>5</sub> &#8594; <i>max</i></p>
+
+            <h3>Zapis zadania w bazowej postaci kanonicznej:</h3>
+
+            <p class="nierownosc">&#9484;<br>
+            &#9474;<span id="bkbwm">2</span>x<sub>1</sub> + <span id="bkbbm">1</span>x<sub>2</sub> + 1x<sub>3</sub> + 0x<sub>4</sub> + 0x<sub>5</sub> = <span id="bkdm">10</span><br>
+            &#9474;<span id="bkbwl">3</span>x<sub>1</sub> + <span id="bkbbl">3</span>x<sub>2</sub> + 0x<sub>3</sub> + 1x<sub>4</sub> + 0x<sub>5</sub> = <span id="bkdl">24</span><br>
+            &#9474;<span id="bkbwb">2</span>x<sub>1</sub> + 0x<sub>2</sub> + 0x<sub>3</sub> + 0x<sub>4</sub> + 1x<sub>5</sub> = <span id="bkdb">8</span><br>
+            &#9474;x<sub>i</sub> &ge; 0<br>
+            &#9492;</p>
+
+            <p>Funkcja celu:</p>
+            <p>Z = <span id="bkbwz">300</span>x<sub>1</sub> + <span id="bkbbz">200</span>x<sub>2</sub> + 0x<sub>3</sub> + 0x<sub>4</sub> + 0x<sub>5</sub> &#8594; <i>max</i></p>
+
+            <hr>
+        </section>
+        <section id="tabele"></section>
+    </main>
+    
+    <footer>
+        <hr>
+        <p><b>Autor:</b> Piotr K. | <b>Na podstawie:</b> <i>Metody Numeryczne (mgr inż. Aneta Bera)</i></p>
+        <hr>
+    </footer>
+</body>
+</html>
